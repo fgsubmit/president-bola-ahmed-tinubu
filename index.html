@@ -636,28 +636,28 @@
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({
     pageLanguage: 'en',
-    includedLanguages: 'fr,es,de,pt,ar,hi,zh',
     autoDisplay: false
   }, 'google_translate_element');
 }
 
-function autoTranslate() {
-  var lang = navigator.language || navigator.userLanguage;
-  lang = lang.substring(0,2);
+function triggerAutoTranslate() {
+  var userLang = navigator.language || navigator.userLanguage;
+  userLang = userLang.substring(0,2);
 
-  var select = document.querySelector(".goog-te-combo");
-  if(select) {
-    select.value = lang;
-    select.dispatchEvent(new Event('change'));
-  }
+  var checkExist = setInterval(function() {
+    var select = document.querySelector(".goog-te-combo");
+    if (select) {
+      select.value = userLang;
+      select.dispatchEvent(new Event('change'));
+      clearInterval(checkExist);
+    }
+  }, 1000);
 }
 
-setTimeout(autoTranslate, 3000);
+setTimeout(triggerAutoTranslate, 2000);
 </script>
 
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-  
 
 <!-- BEGIN: Powered by Supercounters.com -->
 <center><script type="text/javascript" src="//widget.supercounters.com/ssl/online_i.js"></script><script type="text/javascript">sc_online_i(1731983,"ffffff","ffffff");</script><!-- END: Powered by Supercounters.com -->
